@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RIZAP</title>
+  <link href="/styles/kendo.common.min.css" rel="stylesheet">
+  <link href="/styles/kendo.default.min.css" rel="stylesheet">
+  <link href="/styles/kendo.default.mobile.min.css" rel="stylesheet">
+  <link href="/styles/all.css" rel="stylesheet">
+  <link href="/styles/variables.scss" rel="stylesheet">
+  <link href="/css/site.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+</head>
+
+<body>
+  <!-- JS -->
+  <script src="/ServerDomain.js"></script>
+  <script src="/ServerBuildInfo.js"></script>
+  <script src="/ServerBuildVersion.js"></script>
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jszip.min.js"></script>
+  <script src="/js/kendo.all.min.js"></script>
+  <script src="/js/console.js"></script>
+  <!-- GM2 JS -->
+  <script src="/gm_js/gm2_api_ajax.js"></script>
+  <script src="/gm_js/gm2_message_dialog.js"></script>
+  <script src="/gm_js/gm2_shared_func.js"></script>
+  <script src="/gm_js/gm2_model.js"></script>
+
+  <!--JS Runtime-->
+  <script>
+    $(document).ready(function() {
+      // 顯示網站版本資訊
+      if (serverBuildInfo != null) {
+        var siteVerInfo = "site v" + serverBuildVersion + " / build " + serverBuildInfo;
+        var fieldNameElement = document.getElementById("buildContent");
+        fieldNameElement.innerHTML = siteVerInfo;
+      }
+    });
+  </script>
+
+  <!--System Object-->
+  <div class="busy-indicator"></div>
+  <!-- Menu & Content -->
+  <div class="wrap">
+    <div class="sidebar" 
+        style="width: 350px; height: 1077px; background: black; text-align: center ">
+<!--
+      <div class="top-row pl-4 navbar">
+        <a class="navbar-brand" href="/">RIZAP</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+-->
+
+      <!-- Menu -->
+      <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" 
+      style="background-color: black">
+       
+        <img class="rizap-small-logo" src="logo_new-3x.png" alt="" style="width: 180px; margin: 30px 0px 0px 20px  ">
+
+
+       <div style="color: white; background: #1c1c1c; width: 301px; height: 69px; line-height: 69px; margin: auto; border-radius: 15px; font-family: 'Roboto'; font-size: 24px; color: #998f88; font-weight: bold; margin-top: 30px">
+         <img src="OS_icon_sidemenu_store.svg" alt="" style="width:40px; float: left; margin-top: 16px; margin-left: 16px;">
+
+         <div style="width: 100px; display: inline-block; text-align: center; margin-left: -32px">XinYi</div>
+       </div>
+       
+       <ul style="list-style-type: none; margin-top: 56px">
+         <li style="margin-left: -3px; width: 278px; height: 50px; color: rgb(198,158,93); background: rgb(123,83,18)">
+           <img src="OS_icon_sidemenu_store.svg" alt="" style="width:40px; float: left; margin-top: 5px; margin-left: 6px;">
+           <div style="margin-left: -20px;padding-top: 12px; padding-left: 90px; font-family: 'Roboto'; font-size: 20px; font-weight: bold; text-align: left">Guest Management</div>
+         </li>
+         <li style="margin-top: 30px; margin-left: -3px; width: 278px; height: 50px; color: rgb(198,158,93); background: rgb(123,83,18)">
+           <img src="OS_icon_sidemenu_store.svg" alt="" style="width:40px; float: left; margin-top: 5px; margin-left: 6px;">          
+           <div style="margin-left: -20px;padding-top: 12px; padding-left: 90px; font-family: 'Roboto'; font-size: 20px; font-weight: bold; text-align: left">Calender</div>
+         </li>
+         <li style="margin-top: 30px; margin-left: -3px; width: 278px; height: 50px; color: rgb(198,158,93); background: rgb(123,83,18)">
+           <img src="OS_icon_sidemenu_store.svg" alt="" style="width:40px; float: left; margin-top: 5px; margin-left: 6px;">          
+           <div style="margin-left: -20px;padding-top: 12px; padding-left: 90px; font-family: 'Roboto'; font-size: 20px; font-weight: bold; text-align: left">Customer Inquiry</div>
+         </li>  
+         <li style="margin-top: 30px; margin-left: -3px; width: 278px; height: 50px; color: rgb(198,158,93); background: rgb(123,83,18)">
+           <img src="OS_icon_sidemenu_store.svg" alt="" style="width:40px; float: left; margin-top: 5px; margin-left: 6px;">          
+           <div style="margin-left: -20px;padding-top: 12px; padding-left: 90px; font-family: 'Roboto'; font-size: 20px; font-weight: bold; text-align: left">Sales Management</div>
+         </li>
+         <li style="margin-top: 30px; margin-left: -3px; width: 278px; height: 50px; color: rgb(198,158,93); background: rgb(123,83,18)">
+           <img src="OS_icon_sidemenu_store.svg" alt="" style="width:40px; float: left; margin-top: 5px; margin-left: 6px;">          
+           <div style="margin-left: -20px;padding-top: 12px; padding-left: 90px; font-family: 'Roboto'; font-size: 20px; font-weight: bold; text-align: left">KPI Dashboard</div>
+         </li>
+         <li style="margin-top: 30px; margin-left: -3px; width: 278px; height: 50px; color: rgb(198,158,93); background: rgb(123,83,18)">
+           <img src="OS_icon_sidemenu_store.svg" alt="" style="width:40px; float: left; margin-top: 5px; margin-left: 6px;">          
+           <div style="margin-left: -20px;padding-top: 12px; padding-left: 90px; font-family: 'Roboto'; font-size: 20px; font-weight: bold; text-align: left">Contract Form</div>
+         </li>  
+         <li style="margin-top: 30px; margin-left: -3px; width: 278px; height: 50px; color: rgb(198,158,93); background: rgb(123,83,18)">
+           <img src="OS_icon_sidemenu_store.svg" alt="" style="width:40px; float: left; margin-top: 5px; margin-left: 6px;">          
+           <div style="margin-left: -20px;padding-top: 12px; padding-left: 90px; font-family: 'Roboto'; font-size: 20px; font-weight: bold; text-align: left">Staff Management</div>
+         </li>
+         <li style="margin-top: 30px; margin-left: -3px; width: 278px; height: 50px; color: rgb(198,158,93); background: rgb(123,83,18)">
+           <img src="OS_icon_sidemenu_store.svg" alt="" style="width:40px; float: left; margin-top: 5px; margin-left: 6px;">          
+           <div style="margin-left: -20px;padding-top: 12px; padding-left: 90px; font-family: 'Roboto'; font-size: 20px; font-weight: bold; text-align: left">Setting</div>
+         </li>
+         
+         <li style="margin-top: 60px; margin-left: -3px; width: 278px; height: 50px; color: rgb(144,144,144); background: black">
+           <img src="OS_icon_sidemenu_store.svg" alt="" style="width:40px; float: left; margin-top: 5px; margin-left: 6px;">          
+           <div style="margin-left: -20px;padding-top: 12px; padding-left: 90px; font-family: 'Roboto'; font-size: 20px; text-align: left">Change Password</div>
+         </li>  
+         <li style="margin-top: 10px; margin-left: -3px; width: 278px; height: 50px; color: rgb(144,144,144); background: black">
+           <img src="OS_icon_sidemenu_store.svg" alt="" style="width:40px; float: left; margin-top: 5px; margin-left: 6px;">          
+           <div style="margin-left: -20px;padding-top: 12px; padding-left: 90px; font-family: 'Roboto'; font-size: 20px;text-align: left">Logout</div>
+                                                                                             
+       </ul>
+       </div>
+
+       </div>
+       
+       <div>
+         <div>
+           <div style="text-align: center">
+             <h1>Welcome</h1>
+             <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+           </div>
+
+         </div>
+         
+      <hr />
+      <!--版本內容-->
+      <font size="2" color="#c0c0c0" style="text-align:center;">
+        <div id="buildContent"></div>
+      </font>
+      <!-- View 的除錯視窗 -->
+      <div>
+        <style>
+          /*
+		Debug Console Style
+	*/
+          div.console div {
+            height: auto;
+          }
+
+          .console {
+            background-color: transparent;
+            color: #333;
+            font: 11px Consolas, Monaco, "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+            margin: 0;
+            overflow-x: hidden;
+            text-align: left;
+            height: 200px;
+            border: 1px solid rgba(20, 53, 80, 0.1);
+            background-color: #ffffff;
+            text-indent: 0;
+          }
+
+          .demo-section .box-col .console {
+            min-width: 200px;
+          }
+
+          .console .count {
+            background-color: #26c6da;
+            -moz-border-radius: 15px;
+            -webkit-border-radius: 15px;
+            border-radius: 15px;
+            color: #ffffff;
+            font-size: 10px;
+            margin-left: 5px;
+            padding: 2px 6px 2px 5px;
+          }
+
+          .console div {
+            background-position: 6px -95px;
+            border-bottom: 1px solid #DDD;
+            padding: 5px 10px;
+            height: 2em;
+            line-height: 2em;
+            vertical-align: middle;
+          }
+
+          .console .error {
+            background-position: 6px -135px;
+          }
+        </style>
+
+        <div id="div_Debug" class="box wide" style="padding-top: 1em;">
+          <h4>Debug</h4>
+          <div class="console"></div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+
+  <!--顯示 Mini Profiler 提供的效能資訊-->
+  <script async="async" id="mini-profiler" src="/profiler/includes.min.js?v=4.1.0+c940f0f28d" data-version="4.1.0+c940f0f28d" data-path="/profiler/" data-current-id="eedb13c5-b0ab-450b-88a2-2c38a9d77f56" data-ids="eedb13c5-b0ab-450b-88a2-2c38a9d77f56" data-position="Left" data-authorized="true" data-max-traces="15" data-toggle-shortcut="Alt+P" data-trivial-milliseconds="2.0" data-ignored-duplicate-execute-types="Open,OpenAsync,Close,CloseAsync"></script>
+
+
+
+</body>
+
+</html>
