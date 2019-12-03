@@ -5,7 +5,7 @@ function gm2_AjaxApiGet(url, dataOutputFunction, errorFunction) {
 
 	var xhttp = new XMLHttpRequest();
 	
-	// �脰���唾撓
+	// 進行傳輸
 	gm2_AjaxApiFetch(xhttp, dataOutputFunction);
 
 	xhttp.onerror = errorFunction;
@@ -18,7 +18,7 @@ function gm2_AjaxApiPropfind(url, dataOutputFunction, errorFunction) {
 
 	var xhttp = new XMLHttpRequest();
 	
-	// �脰���唾撓
+	// 進行傳輸
 	gm2_AjaxApiFetch(xhttp, dataOutputFunction);
 
 	xhttp.onerror = errorFunction;
@@ -30,7 +30,7 @@ function gm2_AjaxApiPost(url, bodyContent, dataOutputFunction, errorFunction) {
 	kendoConsole.log("try AJAX (POST)...");
 	var xhttp = new XMLHttpRequest();
 
-	// �脰���唾撓
+	// 進行傳輸
 	gm2_AjaxApiFetch(xhttp, dataOutputFunction);
 
 	xhttp.onerror = errorFunction;
@@ -43,7 +43,7 @@ function gm2_AjaxApiPut(url, bodyContent, dataOutputFunction, errorFunction) {
 	kendoConsole.log("try AJAX (PUT)...");
 	var xhttp = new XMLHttpRequest();
 
-	// �脰���唾撓
+	// 進行傳輸
 	gm2_AjaxApiFetch(xhttp, dataOutputFunction);
 
 	xhttp.onerror = errorFunction;
@@ -57,7 +57,7 @@ function gm2_AjaxApiDelete(url, dataOutputFunction, errorFunction) {
 
 	var xhttp = new XMLHttpRequest();
 
-	// �脰���唾撓
+	// 進行傳輸
 	gm2_AjaxApiFetch(xhttp, dataOutputFunction);
 
 	xhttp.onerror = errorFunction;
@@ -68,9 +68,9 @@ function gm2_AjaxApiDelete(url, dataOutputFunction, errorFunction) {
 function gm2_AjaxApiFetch(xhttp, dataOutputFunction) {
 	xhttp.onreadystatechange = function() {
 		if (this.readyState === 4 && this.status === 200) {
-			// 閫��� MRS
+			// 解析 MRS
 			var objData = gm2_AjaxApi_MrsParser(this.responseText);
-			// 閫��諹���坔�穃�硋��
+			// 解完資料向外傳
 			dataOutputFunction(objData);
 		}
 		else {
@@ -84,12 +84,12 @@ function gm2_AjaxApiFetch(xhttp, dataOutputFunction) {
 function gm2_AjaxApi_MrsParser(respText) {
 	var responseObj = JSON.parse(respText);
 
-	// 憓𧼮�惩ế�𪃾��㗇�埝�匧�嗡�碶蜓璈蠘撓�枂���𥲤隤�
+	// 增加判斷有沒有其他主機輸出的錯誤
 	var gotErrors = responseObj.errPairs.filter(function(item, index, array){
 		return item.errCode !== 0;
 	});
 
-	// ��堒㫲 Performance Info
+	// 列印 Performance Info
 	if (responseObj.perfs != null) {
 		var PerfInfo = "";
 		responseObj.perfs.forEach(function(item, index, array){
@@ -98,7 +98,7 @@ function gm2_AjaxApi_MrsParser(respText) {
 		kendoConsole.log(PerfInfo);
 	}
 	
-	// 瑼Ｘ䰻�糓�炏��厰𥲤隤�
+	// 檢查是否有錯誤
 	if (gotErrors.length > 0){
 		var errMsg = "";
 		gotErrors.forEach(function (item, index, array) {
@@ -106,7 +106,7 @@ function gm2_AjaxApi_MrsParser(respText) {
 			kendoConsole.log("ErrCode: " + item.errCode + ", ErrMsg: " + item.errMsg);
 		});
 
-		gm2_MessageDialog("messageDialog", "瘜冽��", errMsg);
+		gm2_MessageDialog("messageDialog", "注意", errMsg);
 	}
 	else{
 		kendoConsole.log("Process successful");

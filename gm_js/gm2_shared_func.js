@@ -1,4 +1,4 @@
-function gm2_GetCreditCardShowStr(credit_No) {
+﻿function gm2_GetCreditCardShowStr(credit_No) {
     var creditCardStr = "";
     if (credit_No !== null && credit_No.length >= 16) {
         for (var i = 0; i < 16; i++) {

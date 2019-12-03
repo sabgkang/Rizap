@@ -1,1 +1,1 @@
-var serverBuildInfo="2019-11-28::ad56acb";
+var serverBuildInfo="2019-12-02::4b44810";

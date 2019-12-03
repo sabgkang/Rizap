@@ -1,4 +1,4 @@
-function HC_Change_Order_Main_Model(mainOrderData) {
+﻿function HC_Change_Order_Main_Model(mainOrderData) {
 	var data = new Object;
 	
 	/// 異動單號

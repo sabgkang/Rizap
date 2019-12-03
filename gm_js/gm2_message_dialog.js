@@ -10,7 +10,7 @@ function gm2_MessageDialog(divObjId, title , message) {
 	//	modal: true,
 	//	content: "<p>" + message + "<p>",
 	//	actions: [
-	//		{ text: '��𣈯��', primary: true }
+	//		{ text: '關閉', primary: true }
 	//	],
 	//	close: function (){
 	//		messageDialog = null;
@@ -18,3 +18,4 @@ function gm2_MessageDialog(divObjId, title , message) {
 	//});
 	kendo.alert(message);
 }
+

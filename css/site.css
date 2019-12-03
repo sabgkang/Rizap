@@ -1,5 +1,10 @@
-/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/styles/fonts/google/Roboto-Regular.ttf");
+}
 
 a.navbar-brand {
   white-space: normal;
@@ -51,20 +56,35 @@ button.accept-policy {
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-    font-size: 14px;
     position: relative;
     min-height: 100%;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 body {
     /* Margin bottom by footer height */
-    margin-bottom: 60px;
+	margin-top: 0px; 
+    margin-bottom: 0px; 
+    margin-left: 0px; 
+    margin-right: 0px;
+    padding: 0;
+    font-family: Roboto Condensed, sans-serif;
+	text-align: center;
 }
 
 /*
     Rizap Overall Style
 -------------------------------------------------- */
+.logined-logo {
+	margin: 34px 0px 0px 0px;
+	max-width: 180px;
+}
+
+.sidebar-icon {
+	width: 40px;
+	height: 40px;
+    margin: 0px 28px 0px 0px;
+}
+
 .top-row {
     height: 3.5rem;
     display: flex;
@@ -79,12 +99,8 @@ body {
 
 .sidebar {
     position:absolute;
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    background-color: rgb(0, 0, 0);
 }
-
-    .sidebar .top-row {
-        background-color: rgba(0,0,0,0.4);
-    }
 
     .sidebar .navbar-brand {
         font-size: 1.1rem;
@@ -99,8 +115,8 @@ body {
 
 .main {
     position:absolute;
-    /*內容左側定位距離最左側的長度*/
-    left:260px;
+    /*主內容區距離最左側的絕對寬度*/
+    left:410px;
 }
 
     .main .top-row {
@@ -166,13 +182,16 @@ body {
     }
 }
 
+/*
+    桌面顯示專用
+*/
 @media (min-width: 768px) {
     app {
         flex-direction: row;
     }
 
     .sidebar {
-        width: 250px;
+        width: 350px;
         height: 100vh;
         top: 0;
     }
@@ -183,7 +202,7 @@ body {
     }
 
     .main > div {
-        padding-left: 2rem !important;
+        padding-left: 0rem !important;
         padding-right: 1.5rem !important;
     }
 
