@@ -1,0 +1,230 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>RIZAP</title>
+	<link href="/styles/kendo.common.min.css" rel="stylesheet">
+    <link href="/styles/kendo.default.min.css" rel="stylesheet">
+	<link href="/styles/kendo.default.mobile.min.css" rel="stylesheet">
+	<link href="/styles/all.css" rel="stylesheet">
+	<link href="/styles/variables.scss" rel="stylesheet">
+	<link href="/css/site.css" rel="stylesheet">
+</head>
+<body>
+<!-- JS -->
+<script src="/ServerDomain.js"></script>
+<script src="/ServerBuildInfo.js"></script>
+<script src="/ServerBuildVersion.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jszip.min.js"></script>
+<script src="/js/kendo.all.min.js"></script>
+<script src="/js/console.js"></script>
+<!-- GM2 JS -->
+<script src="/gm_js/gm2_api_ajax.js"></script>
+<script src="/gm_js/gm2_message_dialog.js"></script>
+<script src="/gm_js/gm2_shared_func.js"></script>
+<script src="/gm_js/gm2_model.js"></script>
+
+	<!--JS Runtime-->
+	<script>
+		$(document).ready(function () {
+			// 顯示網站版本資訊
+			if (serverBuildInfo != null) {
+				var siteVerInfo = "site v" + serverBuildVersion + " / build " + serverBuildInfo;
+				var fieldNameElement = document.getElementById("buildContent");
+				fieldNameElement.innerHTML = siteVerInfo;
+			}
+			// 改變網站背景
+			document.body.style.background = "#F6F4F2";
+		});
+	</script>
+	<!--System Object-->
+	<div class="busy-indicator"></div>
+	<!-- Menu & Content -->
+	<div class="wrap">
+		<div class="sidebar">
+			<div>
+				<img class="logined-logo" src="/content/logo_new.png" alt="">
+			</div>
+
+			<!-- Menu -->
+			<div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+				
+
+<ul class="nav">
+    <!-- Login User Info-->
+	<li class="nav-item" style="width: 300px; margin-top: -5px; margin-left: -20px; ">
+		<a class="nav-link" title="Manage" style="height: 69px; font-size: 24px; background-color: #1c1c1c; border-radius: 15px " >
+		<img class="sidebar-icon" src="/content/OS_icon_sidemenu_store.svg" style="margin-left: 10px; margin-right: 10px " />
+		germos@gmail.com</a>
+	</li>
+
+    <!-- Main Menu -->
+    <li class="nav-item px-3" style="margin-top: 28px">
+		<a class="active" href="/GuestManagementList">
+			<img class="sidebar-icon" src="/content/OS_icon_side_guest.svg"/>
+			Guest Management
+		</a>
+    </li>
+    <li class="nav-item px-3">
+	    <a class="nav-link" href="/GuestManagementList/ReadGuestList">
+		    <img class="sidebar-icon" src="/content/OS_icon_sidemenu_calendar.svg"/>
+		    Calendar
+	    </a>
+	</li>
+    <li class="nav-item px-3">
+	    <a class="nav-link">
+			<img class="sidebar-icon" src="/content/OS_icon_sidemenu_customer.svg"/>
+		    Customer Inquiry
+	    </a>
+	</li>
+    <li class="nav-item px-3">
+	    <a class="nav-link">
+			<img class="sidebar-icon" src="/content/OS_icon_sidemenu_sales.svg"/>
+		    Sales Management
+	    </a>
+	</li>
+	<li class="nav-item px-3">
+		<a class="nav-link">
+			<img class="sidebar-icon" src="/content/OS_icon_sidemenu_kpi.svg"/>
+			KPI Dashboard
+		</a>
+	</li>
+	<li class="nav-item px-3">
+		<a class="nav-link">
+			<img class="sidebar-icon" src="/content/OS_icon_sidemenu_document.svg"/>
+			Contract Form
+		</a>
+	</li>
+    <li class="nav-item px-3">
+	    <a class="nav-link">
+			<img class="sidebar-icon" src="/content/OS_icon_sidemenu_hr.svg"/>
+		    Staff Management
+	    </a>
+	</li>
+    <li class="nav-item px-3">
+	    <a class="nav-link" href="/Setting" >
+			<img class="sidebar-icon" src="/content/OS_icon_sidemenu_setting.svg"/>
+		    Setting
+	    </a>
+	</li>
+    <li class="nav-item px-3"  style="margin-top: 35px">
+	    <a class="nav-link" href="/Identity/Account/Manage/ChangePassword">
+			<img class="sidebar-icon" src="/content/OS_icon_sidemenu_password.svg"/>
+		    Change Password
+	    </a>
+	</li>
+
+    <!--Logout-->
+	<li class="nav-item px-3">
+		<form class="form-inline" action="/Identity/Account/Logout?returnUrl=%2F" method="post" style=" text-align: left">
+			<img class="sidebar-icon" src="/content/OS_icon_sidemenu_logout.svg" style="vertical-align:middle;" />
+			<button type="submit" class="nav-link btn btn-link" id="btn-logout" >Logout</button>
+		<input name="__RequestVerificationToken" type="hidden" value="CfDJ8IcnZzUiW2pOlMP9CKmwNa6tmPxZy34hJ5EFPgo8K7VsLONDHpVXx-TnUI8_csehCerTNIMU34cVoYy2kKYHqaA1CysDrzGa598-CgWFrSqEAG0g_QZVdb5TK2NSutUqFncYzG9UtLg0-Ma_yLgWuFwqisDKcFVlTJmVZ-OKrJ2OkJk7J77v_mQqnnUg6KgqXA" /></form>
+	</li>
+	<li class="nav-item px-3">
+        <div class="row">
+            <div class="col-md-6 text-right">
+				
+
+
+<form id="selectLanguage" method="post" class="form-horizontal" role="form" action="/GuestManagementList/SetLanguage?returnUrl=~%2F">
+	<label style="color: #969696">Language :</label>
+	<select name="culture" onchange="this.form.submit();" id="lang"><option selected="selected" value="en-US">English (United States)</option>
+<option value="zh-Hant">Chinese (Traditional)</option>
+<option value="ja-JP">Japanese (Japan)</option>
+</select>
+<input name="__RequestVerificationToken" type="hidden" value="CfDJ8IcnZzUiW2pOlMP9CKmwNa6tmPxZy34hJ5EFPgo8K7VsLONDHpVXx-TnUI8_csehCerTNIMU34cVoYy2kKYHqaA1CysDrzGa598-CgWFrSqEAG0g_QZVdb5TK2NSutUqFncYzG9UtLg0-Ma_yLgWuFwqisDKcFVlTJmVZ-OKrJ2OkJk7J77v_mQqnnUg6KgqXA" /></form>
+
+            </div>
+        </div>
+	</li>
+</ul>
+
+			</div>
+		</div>
+
+		<div class="main">
+			<div class="">
+				
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+			</div>
+			<hr/>
+			<!--版本內容-->
+			<font size="2" color="#c0c0c0" style="text-align:center;"><div id="buildContent"></div></font>
+			<!-- View 的除錯視窗 -->
+			<div>
+				<style>
+	/*
+		Debug Console Style
+	*/
+	div.console div {
+		height: auto;
+	}
+	.console
+	{
+		background-color: transparent;
+		color: #333;
+		font: 11px Consolas, Monaco, "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+		margin: 0;
+		overflow-x: hidden;
+		text-align: left;
+		height: 200px;
+		border: 1px solid rgba(20,53,80,0.1);
+		background-color: #ffffff;
+		text-indent: 0;
+	}
+	.demo-section .box-col .console
+	{
+		min-width: 200px;
+	}
+	.console .count
+	{
+		background-color: #26c6da;
+		-moz-border-radius: 15px;
+		-webkit-border-radius: 15px;
+		border-radius: 15px;
+		color: #ffffff;
+		font-size: 10px;
+		margin-left: 5px;
+		padding: 2px 6px 2px 5px;
+	}
+	.console div
+	{
+		background-position: 6px -95px;
+		border-bottom: 1px solid #DDD;
+		padding: 5px 10px;
+		height: 2em;
+		line-height: 2em;
+		vertical-align: middle;
+	}
+	.console .error
+	{
+		background-position: 6px -135px;
+	}
+</style>
+
+<div id="div_Debug" class="box wide" style="padding-top: 1em;">
+	<h4>Debug</h4>
+	<div class="console"></div>
+</div>
+
+
+			</div>
+		</div>
+
+	</div>
+	<!--顯示 Mini Profiler 提供的效能資訊-->
+	<script async="async" id="mini-profiler" src="/profiler/includes.min.js?v=4.1.0+c940f0f28d" data-version="4.1.0+c940f0f28d" data-path="/profiler/" data-current-id="f78dbdc9-e732-46d9-840d-fffe5ca16a66" data-ids="10951cf9-5532-43ff-a20e-3b5c0480249d,f78dbdc9-e732-46d9-840d-fffe5ca16a66" data-position="Right" data-authorized="true" data-max-traces="15" data-toggle-shortcut="Alt+P" data-trivial-milliseconds="2.0" data-ignored-duplicate-execute-types="Open,OpenAsync,Close,CloseAsync"></script>
+
+
+
+</body>
+</html>
