@@ -56,14 +56,14 @@
 
 <ul class="nav">
     <!-- Login User Info-->
-	<li class="nav-item" style="width: 300px; margin-top: -5px; margin-left: -20px; ">
-		<a class="nav-link" title="Manage" style="height: 69px; font-size: 24px; background-color: #1c1c1c; border-radius: 15px " >
-		<img class="sidebar-icon" src="/content/OS_icon_sidemenu_store.svg" style="margin-left: 10px; margin-right: 10px " />
+	<li class="nav-item" id="user-name-item" >
+		<a class="nav-link" id="user-name" title="Manage"  >
+		<img class="sidebar-icon" id="user-icon" src="/content/OS_icon_sidemenu_store.svg"  />
 		germos@gmail.com</a>
 	</li>
 
     <!-- Main Menu -->
-    <li class="nav-item px-3" style="margin-top: 28px">
+    <li class="nav-item px-3" >
 		<a class="active" href="/GuestManagementList">
 			<img class="sidebar-icon" src="/content/OS_icon_side_guest.svg"/>
 			Guest Management
@@ -111,7 +111,7 @@
 		    Setting
 	    </a>
 	</li>
-    <li class="nav-item px-3"  style="margin-top: 35px">
+    <li class="nav-item px-3" id="chang-pwd">
 	    <a class="nav-link" href="/Identity/Account/Manage/ChangePassword">
 			<img class="sidebar-icon" src="/content/OS_icon_sidemenu_password.svg"/>
 		    Change Password
@@ -120,8 +120,8 @@
 
     <!--Logout-->
 	<li class="nav-item px-3">
-		<form class="form-inline" action="/Identity/Account/Logout?returnUrl=%2F" method="post" style=" text-align: left">
-			<img class="sidebar-icon" src="/content/OS_icon_sidemenu_logout.svg" style="vertical-align:middle;" />
+		<form class="form-inline" id="logout-form" action="/Identity/Account/Logout?returnUrl=%2F" method="post" >
+			<img class="sidebar-icon" id="logout-icon" src="/content/OS_icon_sidemenu_logout.svg"  />
 			<button type="submit" class="nav-link btn btn-link" id="btn-logout" >Logout</button>
 		<input name="__RequestVerificationToken" type="hidden" value="CfDJ8IcnZzUiW2pOlMP9CKmwNa6tmPxZy34hJ5EFPgo8K7VsLONDHpVXx-TnUI8_csehCerTNIMU34cVoYy2kKYHqaA1CysDrzGa598-CgWFrSqEAG0g_QZVdb5TK2NSutUqFncYzG9UtLg0-Ma_yLgWuFwqisDKcFVlTJmVZ-OKrJ2OkJk7J77v_mQqnnUg6KgqXA" /></form>
 	</li>

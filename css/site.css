@@ -159,7 +159,7 @@ body {
             color: #d5b22d;
         }
 
-
+/* ----- 2019-12-04 Paul Kang --- */
 #btn-logout {
   border: none; background-color: black; color: #969696; font-size: 21px; margin-left: -10px;
 }
@@ -168,11 +168,38 @@ body {
   border: none; background-color: black; color: #d5b22d; font-size: 21px; margin-left: -10px;
 }
 
+#user-name-item {
+  width: 300px; margin-top: -5px; margin-left: -20px; 
+}
+
+#user-name {
+  height: 69px; font-size: 24px; background-color: #1c1c1c; border-radius: 15px;
+}
+#user-name:hover {
+  color: #969696;
+}
+#user-icon{
+  margin-left: 10px; margin-right: 10px 
+}
+
+#chang-pwd {
+  margin-top: 35px
+}
+
+#logout-form {
+  text-align: left
+}
+#logout-icon {
+  vertical-align:middle;
+}
 #lang {
   font-size: 15px;
   font-family: "Roboto"
   
 }
+
+/* END ----- 2019-12-04 Paul Kang --- */
+
 
 .content {
     padding-top: 1.1rem;
